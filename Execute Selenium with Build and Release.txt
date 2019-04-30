@@ -1,0 +1,37 @@
+Create Test Project
+Create/ Add Test Project
+Manage NuGet Packages
+Selenium.Support 
+Selenium.WebDriver.Chrome (preferred)	
+OR
+Selenium.WebDriver.IEDriver	
+Add using statements
+
+Write Code
+IWebDriver driver;
+[TestMethod]
+public void Google_TestMethod()
+{  driver = new ChromeDriver();
+  driver.Manage().Window.Maximize();
+ driver.Navigate().GoToUrl(http://www.google.com);
+ IWebElement element = driver.FindElement(By.Name("q"));
+  element.SendKeys("first demo");
+ driver.Quit();
+}
+
+Build Definition
+Edit existing Build Definition for CI 
+Ensure that Build Definition has “Vs test assemblies” task
+If (Default Build Agent - Interactive mode )
+Check-in/ Commit and push code to Source Control 
+Build automatically triggered
+
+Release Definition
+Create Release Definition
+Add artifact to previous build definition
+Add task for VsTest –testAssemblies
+Version 2.*
+Select Test Using – Test assemblies
+
+
+
